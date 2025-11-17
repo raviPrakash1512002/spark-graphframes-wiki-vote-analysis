@@ -1,6 +1,6 @@
 # 🕸️ Wikipedia Vote Network Analysis
 
-A comprehensive analysis of the Wikipedia Admin Vote Network using PySpark and GraphFrames for Big Data Analytics. This project explores the directed graph structure where A → B represents User A voting for User B in Wikipedia administrator elections.
+This project demonstrates how Big Data Analytics can be used to efficiently process and analyze large, complex networks. The Wikipedia Admin Vote Network contains thousands of nodes and over 100,000 directed edges, making distributed processing essential. Using PySpark and GraphFrames, we compute key graph metrics such as connected components, clustering, triangles, and diameter. This highlights the practical value of big data tools for scalable network analysis and real-world data processing.
 
 ## 📁 Repository Structure
 
