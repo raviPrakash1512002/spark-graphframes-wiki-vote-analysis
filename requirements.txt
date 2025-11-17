@@ -1,0 +1,7 @@
+pyspark==3.4.1
+graphframes==0.8.3
+findspark
+pandas
+numpy
+matplotlib
+jupyter
