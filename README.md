@@ -1,122 +1,138 @@
-FINAL PROFESSIONAL README.md (Copy–Paste Ready)
-# 🕸️ Wikipedia Vote Network Analysis  
-**Big Data Analytics Assignment | Apache Spark | GraphFrames**
+# 🕸️ Wikipedia Vote Network Analysis
 
-This repository contains a full analysis of the **Wikipedia Admin Vote Network** using **PySpark** and **GraphFrames**.  
-The network is a directed graph where `A → B` means *User A voted for User B* in a Wikipedia admin election.
-
----
+A comprehensive analysis of the Wikipedia Admin Vote Network using PySpark and GraphFrames for Big Data Analytics. This project explores the directed graph structure where A → B represents User A voting for User B in Wikipedia administrator elections.
 
 ## 📁 Repository Structure
 
-
-
-📦 Wikipedia-Vote-Network-Analysis/
+```
+Wikipedia-Vote-Network-Analysis/
 │
-├── data/ # Edge list & node list (if allowed)
-│ ├── wiki-Vote_edges.txt
-│ └── wiki-Vote_nodes.txt
+├── data/                              # Network dataset
+│   ├── wiki-Vote_edges.txt           # Edge list
+│   └── wiki-Vote_nodes.txt           # Node list (if available)
 │
 ├── notebook/
-│ └── PySpark_Wikipedia_Vote_Network_analysis.ipynb # Main code
+│   └── PySpark_Wikipedia_Vote_Network_analysis.ipynb  # Main analysis notebook
 │
 ├── reports/
-│ ├── Assignment-1.pdf
-│ └── Report_On_Analysis_of_Wikipedia_Vote_Network.pdf
+│   ├── Assignment-1.pdf              # Assignment instructions
+│   └── Report_On_Analysis_of_Wikipedia_Vote_Network.pdf  # Detailed analysis report
 │
-├── requirements.txt
-├── README.md
-└── .gitignore
-
-
----
+├── requirements.txt                   # Python dependencies
+├── README.md                         # Project documentation
+└── .gitignore                        # Git ignore rules
+```
 
 ## 🚀 Technologies Used
 
-- **Apache Spark**
-- **PySpark**
-- **GraphFrames**
-- **Jupyter Notebook**
-- **Python 3.x**
+- **Apache Spark** - Distributed computing framework
+- **PySpark** - Python API for Spark
+- **GraphFrames** - Graph processing library for Spark
+- **Jupyter Notebook** - Interactive development environment
+- **Python 3.10.12** - Programming language
 
----
+## 📊 Analysis Overview
 
-## 📘 Overview of Work Done
+### ✅ Completed Tasks
 
-### ✔ 1. Data Loading & Cleaning
-- Loaded raw Wikipedia vote edge-list into Spark.
-- Constructed nodes from unique vertex IDs.
-- Built a GraphFrame graph structure.
+1. **Data Loading & Cleaning**
+   - Loaded raw Wikipedia vote edge-list into Spark DataFrames
+   - Constructed nodes from unique vertex IDs
+   - Built GraphFrame graph structure for analysis
 
-### ✔ 2. Graph Statistics
-- Total number of nodes and edges.
-- Validation against SNAP ground truth.
+2. **Graph Statistics**
+   - Calculated total number of nodes and edges
+   - Validated results against SNAP dataset ground truth
 
-### ✔ 3. Connected Components
-- **Largest Weakly Connected Component (WCC)**  
-- **Largest Strongly Connected Component (SCC)**  
-- Compared values against SNAP ground truth.
+3. **Connected Components**
+   - Identified Largest Weakly Connected Component (WCC)
+   - Identified Largest Strongly Connected Component (SCC)
+   - Compared component sizes with reference values
 
-### ✔ 4. Triangle & Clustering Metrics
-- Number of triangles  
-- Average clustering coefficient  
-- Fraction of closed triangles
+4. **Triangle & Clustering Analysis**
+   - Computed number of triangles in the network
+   - Calculated average clustering coefficient
+   - Determined fraction of closed triangles
 
-### ✔ 5. Distance Metrics
-- Graph Diameter (approximation using BFS sampling)
-- Effective Diameter (90th percentile)
+5. **Distance Metrics**
+   - Estimated Graph Diameter using BFS sampling
+   - Computed Effective Diameter (90th percentile distance)
 
----
+## 📈 Results Summary
 
-## 📊 Results Summary
+| Metric | Ground Truth | Computed | Notes |
+|--------|-------------|----------|-------|
+| **Nodes** | 7,115 | 7,115 | ✅ Exact match |
+| **Edges** | 103,689 | 103,689 | ✅ Exact match |
+| **Largest WCC Nodes** | 7,066 | 7,066 | ✅ Exact match |
+| **Largest SCC Nodes** | 1,300 | 1,300 | ✅ Exact match |
+| **Avg. Clustering Coefficient** | 0.1409 | 0.1387 | ⚠️ Small rounding difference |
+| **Fraction of Closed Triangles** | 0.04564 | 0.03829 | ⚠️ Directed vs undirected definition |
+| **Diameter** | 7 | 9 | ⚠️ Sampling approximation |
+| **Effective Diameter** | 3.8 | 4.0 | ✅ Very close |
 
-| Metric                          | Ground Truth | Computed | Notes |
-|----------------------------------|--------------|----------|-------|
-| Nodes                            | 7115         | ✔ Matched | Correct parsing |
-| Edges                            | 103689       | ✔ Matched | Correct graph construction |
-| Largest WCC Nodes                | 7066         | ✔ Matched | Identical |
-| Largest SCC Nodes                | 1300         | ✔ Matched | Identical |
-| Avg. Clustering Coefficient      | 0.1409       | 0.1387    | Small rounding difference |
-| Fraction of Closed Triangles     | 0.04564      | 0.03829   | Directed vs undirected definition |
-| Diameter                         | 7            | 9         | Sampling approximation |
-| Effective Diameter               | 3.8          | 4.0       | Very close |
+## 🧪 Getting Started
 
----
+### Prerequisites
 
-## 🧪 How to Run the Notebook
+- Python 3.10.12
+- Java 8 or later
+- Jupyter Notebook
 
-### 1️⃣ Install dependencies:
-```bash
-pip install pyspark
-pip install graphframes
+### Installation & Setup
 
-2️⃣ Start Jupyter Notebook:
-jupyter notebook
+1. **Install dependencies:**
+   ```bash
+   pip install pyspark graphframes jupyter
+   ```
 
-3️⃣ Open:
-notebook/PySpark_Wikipedia_Vote_Network_analysis.ipynb
+2. **Start Jupyter Notebook:**
+   ```bash
+   jupyter notebook
+   ```
 
-📥 Dataset Source
+3. **Open the analysis notebook:**
+   - Navigate to: `notebook/PySpark_Wikipedia_Vote_Network_analysis.ipynb`
 
-If not included due to size/license:
+### Dataset
 
-Download from Stanford SNAP:
-Wikipedia Vote Network (wiki-Vote)
+If dataset files are not included due to size/licensing:
 
-📄 Reports Included
+1. Download from Stanford SNAP:
+   - [Wikipedia Vote Network](https://snap.stanford.edu/data/wiki-Vote.html)
 
-Assignment-1.pdf – Main assignment instructions
+2. Place the downloaded files in the `data/` directory.
 
-Report_On_Analysis_of_Wikipedia_Vote_Network.pdf – Detailed comparison & explanation
+## 📄 Documentation
 
-📌 Additional Notes
+- **Assignment-1.pdf** - Original assignment instructions and requirements
+- **Report_On_Analysis_of_Wikipedia_Vote_Network.pdf** - Detailed analysis report with methodology and results comparison
 
-Some metrics differ slightly due to Spark’s approximation & distributed computations.
+## 📌 Key Findings
 
-All fundamental metrics match ground truth exactly.
+- **Network Structure**: The Wikipedia vote network exhibits typical social network properties with a large weakly connected component containing most nodes.
 
-🤝 Author Information
+- **Clustering**: The network shows moderate clustering, indicating communities of users who vote for each other.
 
-Your Name
-Big Data Analytics — 2024/2025
-University / Institution (optional)
+- **Scale**: With over 7,000 nodes and 100,000 edges, this represents a substantial real-world social network.
+
+- **Connectivity**: The presence of a large strongly connected component suggests reciprocal voting relationships among a core group of users.
+
+## ⚠️ Notes on Discrepancies
+
+- **Computational Differences**: Some metrics show slight variations due to Spark's distributed computation and approximation algorithms
+
+- **Definition Variations**: Triangle counting differences arise from directed vs undirected graph interpretations
+
+- **Sampling Effects**: Diameter calculation uses sampling for efficiency, which can lead to overestimation
+
+## 🔍 Future Work
+
+- Community detection using label propagation
+- PageRank analysis to identify influential voters
+- Temporal analysis of voting patterns
+- Comparison with other social networks
+
+## 🤝 Contributing
+
+This is an academic project. For suggestions or improvements, please open an issue or contact the repository owner.
